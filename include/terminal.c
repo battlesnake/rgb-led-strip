@@ -18,6 +18,7 @@ void terminalinitialise()
 	terminal_new_state.c_lflag &= ~(ICANON | ECHO | ECHONL | NL1 | CR3 | CR2 | CR1 | TAB3 | TAB2 | TAB1);
 	terminal_new_state.c_oflag |= OPOST | NL0 | CR0 | TAB0;
 	tcsetattr(0, TCSANOW, &terminal_new_state);
+	setbuf(stdout, NULL);
 }
 
 void terminalfinalise()

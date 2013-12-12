@@ -7,7 +7,7 @@ BIN=$PWD/bin
 INCLUDE=$PWD/include
 OUT=$BIN
 OBJ=$PWD/obj
-FLAGS="-mcpu=arm1176jzf-s -Wall -O3 -pipe -iquote $INCLUDE"
+FLAGS="-mcpu=arm1176jzf-s -Wall -O3 -pipe -g -iquote $INCLUDE"
 RUN=
 
 [ -z "$1" ] && {

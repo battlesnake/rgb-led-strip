@@ -1,2 +1,0 @@
-/* Prototypes */
-void update();
