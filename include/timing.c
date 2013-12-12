@@ -56,7 +56,7 @@ timestamp sleepinterval(timestamp dt, timestamp mark)
 /* Sleep for a certain time, using the high precision timer */
 timestamp sleepuntil(timestamp end)
 {
-	timestamp now = *timer;
+	volatile timestamp now = *timer;
 	while (end > now) {
 		now = *timer;
 	}

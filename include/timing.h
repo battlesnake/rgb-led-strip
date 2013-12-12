@@ -8,3 +8,4 @@ timestamp markinterval();
 timestamp sleepinterval(timestamp dt, timestamp mark);
 timestamp sleepuntil(timestamp end);
 
+extern volatile timestamp *timer;

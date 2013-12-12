@@ -1,6 +1,7 @@
+typedef void (*POWER_STATE)(int led, int state);
+
 /* Prototypes */
-void controlinitialise();
+void controlinitialise(POWER_STATE pstate);
 void controlfinalise();
-void control();
+void control(float* rgb);
 void timeslice(int *rgb);
-void power_state(int led, int state);

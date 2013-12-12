@@ -11,7 +11,7 @@ FLAGS="-mcpu=arm1176jzf-s -Wall -O3 -pipe -iquote $INCLUDE"
 RUN=
 
 [ -z "$1" ] && {
-	echo "Syntax: make <project name>"
+	echo "Syntax: make <project name> or make include"
 	exit 0
 }
 
@@ -22,7 +22,7 @@ then
 	FLAGS="$FLAGS -c"
 else
 	rm $BIN/$1.o &>/dev/null
-	FLAGS="`ls $OBJ/*.o` $FLAGS -o $BIN/$1.o"
+	FLAGS="`ls $OBJ/*.o` $FLAGS -o $BIN/$1"
 	RUN=yes
 fi
 
@@ -31,12 +31,13 @@ fi
 	g++ $1/*.c $FLAGS
 )
 RES=$?
+echo ""
 
 if ! [ $RES == 0 ]
 then
 	if [ "$RUN" ]
 	then
-		rm $OUT/*.o &>/dev/null
+		rm $OUT/$1 &>/dev/null
 	else
 		rm $OBJ/*.o ./*.o &>/dev/null
 	fi
@@ -46,8 +47,9 @@ fi
 
 if [ "$RUN" ]
 then
-	chmod +x $BIN/$1.o
-	$BIN/$1.o
+	echo "Running $BIN/$1..."
+	chmod +x $BIN/$1 &&
+	$BIN/$1 &&
 	clear
 else
 	mv *.o obj/
