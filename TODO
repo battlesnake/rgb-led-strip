@@ -1,0 +1,5 @@
+Input: hook that allows the host program to parse input too
+
+Cycle: Like demo, but cycles a smooth locus through the HSV space automatically
+
+Brightness: Move from HSV to HSL
